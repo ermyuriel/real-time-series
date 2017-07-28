@@ -1,0 +1,26 @@
+{
+  "clicky": {
+    "series_identifier": "test_data",
+    "host": "api.clicky.com",
+    "prefix": "/api/stats/4",
+    "queryParams": {
+      "site_id": "101062632",
+      "sitekey": "ede71a03da893452",
+      "type": "visitors-online",
+      "output": "json"
+    }
+  },
+  "clicky-demo": {
+    "series_identifier": "test_data_demo",
+    "host": "api.clicky.com",
+    "prefix": "/api/stats/4",
+    "queryParams": {
+      "site_id": "32020",
+      "sitekey": "9a19b1a4d1171193",
+      "type": "pages-entrance",
+      "output": "json"
+    }
+  }
+}
+
+

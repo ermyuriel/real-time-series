@@ -9,22 +9,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eucj/invent.git"
+    "url": "git+https://github.com/eucj/tesis"
   },
   "author": "Ermy Uriel Castaneira Jaramillo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eucj/invent/issues"
+    "url": "https://github.com/eucj/tesis"
   },
   "homepage": "https://github.com/eucj/invent#readme",
   "dependencies": {
+    "build-url": "^1.0.9",
     "forever": "^0.15.3",
     "generic-promise-pool": "^1.2.2",
-    "googleapis": "^20.1.0",
     "ioredis": "^2.2.0",
     "mean": "^1.0.0",
     "nodemon": "^1.11.0",
-    "r-script": "0.0.3",
-    "stats-lite": "^2.0.3"
+    "r-script": "0.0.3"
   }
 }

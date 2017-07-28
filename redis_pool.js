@@ -1,8 +1,6 @@
 /**
  * Created by EUCJ on 10/24/2016.
  */
-
-
 var pool = require('generic-promise-pool');
 var Redis = require('ioredis');
 var redisPool = null;

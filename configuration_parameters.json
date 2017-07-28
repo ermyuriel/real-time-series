@@ -1,0 +1,10 @@
+{
+  "redisPort": 6379,
+  "redisServer": "192.168.99.100",
+  "api_provider": "clicky-demo",
+  "analysis_n": 10,
+  "analysis_method": "ma",
+  "analysis_interval": 5000,
+  "api_interval": 5000
+}
+
