@@ -3,15 +3,17 @@ var db = require('./database_communication');
 var parsers = require('./api_parsers')
 
 
-module.exports.createTimeSeriesObject = function (data, apiProvider) {
+module.exports.createTimeSeriesObject = function (data, provider) {
 
-    let date = Date.now();
+    let time = Date.now();
 
-    let parsedData = parsers[apiProvider](data)
+
+
+    let parsedData = parsers[provider](data)
 
 
     let timeSeriesObject = JSON.stringify({
-        'timestamp': date, 'data': parsedData
+        'timestamp': time, 'data': parsedData
     });
 
 
@@ -20,7 +22,7 @@ module.exports.createTimeSeriesObject = function (data, apiProvider) {
 }
 
 
-module.exports.transformToRArrays = function (databaseObject) {
+module.exports.transformDatabaseObjectToArray = function (databaseObject) {
     let timestamps = []
     let data = [];
 

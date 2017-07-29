@@ -1,6 +1,6 @@
 {
   "clicky": {
-    "series_identifier": "test_data",
+    "time_series_identifier": "test_data",
     "host": "api.clicky.com",
     "prefix": "/api/stats/4",
     "queryParams": {
@@ -11,7 +11,7 @@
     }
   },
   "clicky-demo": {
-    "series_identifier": "test_data_demo",
+    "time_series_identifier": "test_data_demo",
     "host": "api.clicky.com",
     "prefix": "/api/stats/4",
     "queryParams": {

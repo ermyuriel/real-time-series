@@ -15,7 +15,9 @@ config.api_options = {
 
 }
 
-config.series_identifier = api_parameters.series_identifier;
+config.analysis_series_identifier = api_parameters.time_series_identifier + "_" + config.analysis_provider + "_" + config.analysis_method;
+
+config.time_series_identifier = api_parameters.series_identifier;
 
 redisPool.startPool(config.redisPort, config.redisServer);
 

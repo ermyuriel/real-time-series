@@ -30,6 +30,17 @@ module.exports = {
 
         return value;
 
+    },
+
+    "r":function (data) {
+
+        return data
+
+
+
+
+
+
     }
 
 

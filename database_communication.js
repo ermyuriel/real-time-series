@@ -29,7 +29,7 @@ module.exports.getLastNFromTimeSeries = function (n, siteId, pool) {
         })
 
     }).then((lastN) => {
-        return processing.transformToRArrays(lastN)
+        return processing.transformDatabaseObjectToArray(lastN)
     })
 
 

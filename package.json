@@ -1,6 +1,6 @@
 {
-  "name": "invent",
-  "version": "1.0.0",
+  "name": "tesis",
+  "version": "2.0.0",
   "description": "Recoleccion y registro de datos ",
   "main": "app.js",
   "scripts": {
