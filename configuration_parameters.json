@@ -5,9 +5,9 @@
   "analysis_provider": "r",
   "duration": 600000,
   "api_interval": 1000,
-  "analysis_n": 100,
+  "analysis_n": 10000,
   "analysis_method": "forecast",
-  "analysis_interval": 30000,
+  "analysis_interval": 1000,
   "testing": true
 }
 
