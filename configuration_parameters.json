@@ -1,11 +1,13 @@
 {
-  "redisPort": 6379,
-  "redisServer": "192.168.99.100",
+  "redis_port": 6379,
+  "redis_host": "192.168.99.100",
   "api_provider": "clicky-demo",
   "analysis_provider": "r",
-  "analysis_n": 1000,
-  "analysis_method": "ma",
-  "analysis_interval": 500,
-  "api_interval": 500
+  "duration": 600000,
+  "api_interval": 1000,
+  "analysis_n": 100,
+  "analysis_method": "forecast",
+  "analysis_interval": 30000,
+  "testing": true
 }
 

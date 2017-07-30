@@ -21,6 +21,8 @@ module.exports = {
 
     "clicky-demo": function (data) {
 
+
+
         parsedData = JSON.parse(data)
 
         value = parsedData[0]['dates'][0]['items'][0]['value']
@@ -32,13 +34,9 @@ module.exports = {
 
     },
 
-    "r":function (data) {
+    "r": function (data) {
 
         return data
-
-
-
-
 
 
     }

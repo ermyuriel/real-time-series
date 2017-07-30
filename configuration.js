@@ -7,6 +7,16 @@ var redisPool = require('./redis_pool');
 var api_parameters = require('./api_parameters.json')[config.api_provider];
 var build_url = require('build-url');
 
+if (config.testing == true) {
+    var fs = require('fs');
+    config.start = Date.now();
+
+
+    config.writer = require('csv-write-stream')().pipe(fs.createWriteStream('./logs/log' + config.start + '.csv', {flags: 'a'}))
+
+
+}
+
 
 config.api_options = {
 
@@ -19,7 +29,7 @@ config.analysis_series_identifier = api_parameters.time_series_identifier + "_" 
 
 config.time_series_identifier = api_parameters.series_identifier;
 
-redisPool.startPool(config.redisPort, config.redisServer);
+redisPool.startPool(config);
 
 config.pool = redisPool.getPool();
 

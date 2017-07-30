@@ -4,31 +4,66 @@
 
 var processing = require('./processing')
 
-module.exports.writeToTimeSeries = function (series_identifier, data, pool, apiProvider) {
+module.exports.writeToTimeSeries = function (data, config, analysis = false) {
+
+    let series_id = null;
+    let provider = null;
+
+    if (analysis == true) {
+        series_id = config.analysis_series_identifier;
+        provider = config.analysis_provider
+    }
+    else {
+        series_id = config.time_series_identifier;
+        provider = config.api_provider
+    }
 
 
-    let timeSeriesObject = processing.createTimeSeriesObject(data, apiProvider)
-
-    pool.acquire(function (redisConnection) {
+    let timeSeriesObject = processing.createTimeSeriesObject(data, provider)
 
 
-        return redisConnection.incr('series-counter:' + series_identifier).then((currentCounterValue) => {
-            redisConnection.zadd('series:' + series_identifier, currentCounterValue, timeSeriesObject);
+    if (config.testing == true)
+        config.writer.write("attemptedWriteToTimeSeries\n")
+
+
+    config.pool.acquire(function (redisConnection) {
+
+
+        return redisConnection.incr('series-counter:' + series_id).then((currentCounterValue) => {
+            redisConnection.zadd('series:' + series_id, currentCounterValue, timeSeriesObject).then(() => {
+
+
+                if (config.testing == true)
+                    config.writer.write("succesefulWriteToTimeSeries\n");
+
+
+            })
+            ;
         });
     })
 
 
 }
 
-module.exports.getLastNFromTimeSeries = function (n, siteId, pool) {
+module.exports.getLastNFromTimeSeries = function (config) {
 
-    return pool.acquire((redisConnection) => {
 
-        return redisConnection.get('series-counter:' + siteId).then((counterValue) => {
-            return redisConnection.zrange('series:' + siteId, counterValue - n, counterValue);
+    if (config.testing == true)
+        config.writer.write("attemptedDatabaseCollection\n")
+
+
+    return config.pool.acquire((redisConnection) => {
+
+        return redisConnection.get('series-counter:' + config.time_series_identifier).then((counterValue) => {
+            return redisConnection.zrange('series:' + config.time_series_identifier, counterValue - config.analysis_n, counterValue);
         })
 
     }).then((lastN) => {
+
+        if (config.testing == true)
+            config.writer.write("succesefulDatabaseCollection\n");
+
+
         return processing.transformDatabaseObjectToArray(lastN)
     })
 

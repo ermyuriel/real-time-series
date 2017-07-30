@@ -8,7 +8,6 @@ module.exports.createTimeSeriesObject = function (data, provider) {
     let time = Date.now();
 
 
-
     let parsedData = parsers[provider](data)
 
 
