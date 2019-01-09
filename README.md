@@ -5,4 +5,4 @@ This code attempts to produce close to real time time series forecasting by inte
 
 ##
 
-Intento de ñlataforma de descomposición de series de tiempo en tiempo real
+Plataforma de descomposición de series de tiempo en tiempo real
